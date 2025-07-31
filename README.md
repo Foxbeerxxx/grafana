@@ -8,9 +8,31 @@
 
 1. `Запустил docker compouse , все сервисы стартанули, и начал добавлять в Графану , прометеус`
 
+![1](https://github.com/Foxbeerxxx/grafana/blob/main/img/img1.png)
+![2](https://github.com/Foxbeerxxx/grafana/blob/main/img/img2.png)
 
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
+2. `Создаю Dashboard и в ней создаю следующие Panels`
+![3](https://github.com/Foxbeerxxx/grafana/blob/main/img/img3.png)
+
+```
+Утилизация CPU для nodeexporter в процентах
+   100 - (avg by (instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100)
+
+Средняя нагрузка (1/5/15 минут)    одна панель с тремя query
+   node_load1   node_load5  node_load15
+
+Свободная оперативная память
+   node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes * 100
+
+Свободное место на файловой системе
+   (node_filesystem_avail_bytes{fstype!~"tmpfs|overlay"} / node_filesystem_size_bytes{fstype!~"tmpfs|overlay"}) * 100
+
+```
+3. `Создаю простой Алерт и тестирую его`
+
+![4](https://github.com/Foxbeerxxx/grafana/blob/main/img/img4.png)
+
+
 4. `Заполните здесь этапы выполнения, если требуется ....`
 5. `Заполните здесь этапы выполнения, если требуется ....`
 6. 
@@ -24,7 +46,7 @@
 ```
 
 `При необходимости прикрепитe сюда скриншоты
-![Название скриншота 1](ссылка на скриншот 1)`
+![1](https://github.com/Foxbeerxxx/grafana/blob/main/img/img1.png)`
 
 
 ---
